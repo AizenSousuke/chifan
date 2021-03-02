@@ -7,8 +7,10 @@
   min-height: 60vh;
   min-width: 100vw;
   color: white;
+  text-align: center;
   font-size: 5em;
   font-family: 'Franklin Gothic Medium';
+  padding: 0 5vw 0 5vw;
 }
 .App-body {
   background-color: #282c34;
@@ -16,9 +18,15 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 40vh;
+  min-height: 30vh;
   min-width: 100vw;
   color: white;
+  text-align: center;
   font-size: 5vh;
   font-family: 'Franklin Gothic Medium';
+  padding: 0 5vw 0 5vw;
+}
+
+body {
+  background-color: #282c34;
 }
