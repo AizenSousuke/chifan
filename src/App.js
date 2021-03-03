@@ -13,27 +13,26 @@ function App() {
 		"Golden",
 		"Thai",
 		"Western",
-		"Macdonald's",
+		"Mac Donald's",
 		"Old Chang Kee",
 		"Julaiha",
 	];
 
 	const resultContainer = useAnimation();
-  const resultParagraph = useRef();
+	const resultParagraph = useRef();
 
 	const randomInRange = (min, max) => {
 		return Math.random() * (max - min) + min;
 	};
 
-  const randomHex = () => {
-      let letters = "0123456789ABCDEF";
-      let color = "#";
-      for (let i = 0; i < 6; i++) {
-          color += letters[Math.floor(Math.random() * 16)];
-      }
-      return color;
-  };
-
+	const randomHex = () => {
+		let letters = "0123456789ABCDEF";
+		let color = "#";
+		for (let i = 0; i < 6; i++) {
+			color += letters[Math.floor(Math.random() * 16)];
+		}
+		return color;
+	};
 
 	const randomize = () => {
 		setResults(places[Math.floor(Math.random() * places.length)]);
@@ -44,17 +43,17 @@ function App() {
 			transition: { repeat: Infinity, duration: 1.5 },
 		});
 		confetti({
-			angle: randomInRange(55, 125),
+			angle: randomInRange(80, 100),
 			spread: randomInRange(50, 70),
-			particleCount: randomInRange(50, 100),
+			particleCount: randomInRange(30, 60),
 			origin: { y: 0.7, x: 0.5 },
-      zIndex: 100
+			zIndex: 100,
 		});
-    resultParagraph.current.style.color = randomHex();
+		resultParagraph.current.style.color = randomHex();
 	};
 
 	return (
-		<>
+		<div className="background">
 			<div className="App-header">
 				<motion.div
 					animate={resultContainer}
@@ -66,7 +65,12 @@ function App() {
 					}}
 					// layout
 				>
-					<p ref={resultParagraph} style={{textShadow: "0.5px 1px 5px black"}}>{results ?? ""}</p>
+					<p
+						ref={resultParagraph}
+						style={{ textShadow: "0.5px 1px 5px black" }}
+					>
+						{results ?? ""}
+					</p>
 				</motion.div>
 			</div>
 			<div className="App-body">
@@ -91,14 +95,20 @@ function App() {
 					whileHover={{ scale: 1.05 }}
 				>
 					<button
-						className="text-green-500 pl-5 pr-5 rounded-full capitalize bg-yellow-100"
+						className="text-green-500 pl-5 pr-5 p-4 rounded-full bg-yellow-100 text-base"
 						onClick={() => randomize()}
 					>
-						Click me
+						Click me if you cannot make a decision
 					</button>
 				</motion.div>
+				<button
+					className="text-red-200 mt-3 pl-5 pr-5 p-4 rounded-full bg-red-900 text-base"
+					onClick={() => {window.location.href="tel:86660407"}}
+				>
+					Ask the malay
+				</button>
 			</div>
-		</>
+		</div>
 	);
 }
 
