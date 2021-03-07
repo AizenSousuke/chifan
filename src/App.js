@@ -21,6 +21,8 @@ function App() {
 	const resultContainer = useAnimation();
 	const resultParagraph = useRef();
 
+	const [askText, setAskText] = useState("Ask the malay");
+
 	const randomInRange = (min, max) => {
 		return Math.random() * (max - min) + min;
 	};
@@ -95,18 +97,28 @@ function App() {
 					whileHover={{ scale: 1.05 }}
 				>
 					<button
-						className="text-green-500 pl-5 pr-5 p-4 rounded-full bg-yellow-100 text-base"
+						className="animate-bounce text-green-500 pl-5 pr-5 p-4 rounded-full bg-yellow-100 text-base"
 						onClick={() => randomize()}
 					>
 						Click me if you cannot make a decision
 					</button>
 				</motion.div>
-				<button
-					className="text-red-200 mt-3 pl-5 pr-5 p-4 rounded-full bg-red-900 text-base"
-					onClick={() => {window.location.href="tel:86660407"}}
+				<motion.div
+					whileHover={{
+						translateX: [0, -10, 10, 0],
+						transition: {repeat: Infinity, duration: 0.75, repeatDelay: 0.5}
+					}}
 				>
-					Ask the malay
-				</button>
+					<button
+						className="text-red-200 mt-3 pl-5 pr-5 p-4 rounded-full bg-red-900 text-base"
+						onClick={() => {
+							window.location.href = "tel:86660407";
+						}}
+						// onMouseOver={() => {askText === "Don't click this" ? setAskText("Ask the malay") : setAskText("Don't click this")}}
+					>
+						{askText}
+					</button>
+				</motion.div>
 			</div>
 		</div>
 	);
