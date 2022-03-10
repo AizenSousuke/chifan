@@ -8,6 +8,9 @@
 ## Description
 This project is built because no one can decide where to eat at work. So this app is used to randomize the locations where we will be going to eat for the day. 
 
+## Link
+[Heroku](https://chifanlunchdecisionmaker.herokuapp.com/)
+
 ## Running the application locally
 
 In the project directory, you can run:
